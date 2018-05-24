@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:composite="http://java.sun.com/jsf/composite"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
+    <title>postAcad</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <meta name="description" content="identificação"/>
+    <meta name="author" content=""/>
+    <link rel="icon" href="#{request.contextPath}/resources/imagens/favicon/favicon.ico"/>
+
+    <link href="#{request.contextPath}/resources/css-bootstrap/bootstrap.css" rel="stylesheet"/>
+    <link href="#{request.contextPath}/resources/css/global.css" rel="stylesheet"/>
+
+    <!-- importar csss de acordo com a pagina do aluno -->
+
+    <link href="#{request.contextPath}/resources/css-bootstrap/ie10-viewport-bug-workaround.css" rel="stylesheet"/>
+    <link href="#{request.contextPath}/resources/css-bootstrap/signin.css" rel="stylesheet"/>
+    <script type="text/javascript" src="#{request.contextPath}/resources/js-bootstrap/bootstrap.js"></script>
+    <script type="text/javascript" src="#{request.contextPath}/resources/js-bootstrap/ie-emulation-modes-warning.js"></script>
+
+
+
+</h:head>
+<h:body>
+    <div  class="span12 navbar navbar-default navbar-fixed-top ">
+        <div id="menu" class="container-fluid">
+
+            <div id="imgLogoCabecalho" class="navbar-header ">
+                <a class="navbar-brand" href="#home">
+                    <img alt="Brand" src="#{request.contextPath}/resources/imagens/icone-brand.png"/>
+                </a>
+
+            </div>
+            <h1>PostAcad</h1>
+
+                <div id="dropdownPerfil" class="">
+                    <li>
+                        <span class="glyphicon glyphicon-user" >nome</span>
+                            <ul>
+                                <h:form>
+                                <h:commandButton value="Logout" action="/../index?faces-redirect=true"></h:commandButton>
+                                </h:form>
+                            </ul>
+
+                    </li>
+                </div>
+
+        </div>
+
+        <div  class=" barraNavegacaoAluno">
+
+
+            <h:link class="btn btn-default navbar-btn" value="Gerenciar trabalhos" outcome="trabalhos-alunos?faces-redirect=true" />
+            <h:link class="btn btn-default navbar-btn" value="Gerenciar contatos" outcome="gerenciar-contatos?faces-redirect=true" />
+            <h:link class="btn btn-default navbar-btn" value="Gerenciar perfil" outcome="perfil-aluno?faces-redirect=true" />
+
+        </div>
+
+    </div>
+</h:body>
+</html>

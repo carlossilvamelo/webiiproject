@@ -1,0 +1,135 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:composite="http://java.sun.com/jsf/composite"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+<h:head>
+    <title>postAcad</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <meta name="description" content="identificação"/>
+    <meta name="author" content=""/>
+    <link rel="icon" href="#{request.contextPath}/resources/imagens/favicon/favicon.ico"/>
+
+    <link href="#{request.contextPath}/resources/css-bootstrap/bootstrap.css" rel="stylesheet"/>
+    <link href="#{request.contextPath}/resources/css/global.css" rel="stylesheet"/>
+    <link href="#{request.contextPath}/resources/css/css_contatos.css" rel="stylesheet"/>
+
+    <link href="#{request.contextPath}/resources/css/css_barra-navegacao-aluno.css" rel="stylesheet"/>
+    <link href="#{request.contextPath}/resources/css-bootstrap/ie10-viewport-bug-workaround.css" rel="stylesheet"/>
+    <link href="#{request.contextPath}/resources/css-bootstrap/signin.css" rel="stylesheet"/>
+    <script type="text/javascript" src="#{request.contextPath}/resources/js-bootstrap/bootstrap.js"></script>
+    <script type="text/javascript" src="#{request.contextPath}/resources/js-bootstrap/ie-emulation-modes-warning.js"></script>
+    <script type="text/javascript" src="#{request.contextPath}/resources/js/global.js"></script>
+</h:head>
+<h:body styleClass="backColor">
+    <ui:insert name="header" >
+        <ui:include src="header-professor.xhtml" />
+    </ui:insert>
+
+
+
+
+        <div  class="  divMeusContatosProf col-sm-push-1 col-md-5">
+            <h1>Meus contatos</h1>
+
+            <div class="menuListaTrabalhos">
+
+                <div class="buscarContatoProf col-md-12">
+
+                    <input type="text" placeholder="filtrar" />
+                    <a href="" type="button" class="  btn botaoProfessor navbar-btn">Filtrar</a>
+                </div>
+
+            </div>
+
+            <br/>
+            <table class="listaContatosProf col-md-12">
+
+                <tr>
+                    <td>
+                        <label for="">Login:</label>
+                        <span>chsm</span><br/>
+                        <label for="">Nome:</label>
+                        <span>carlos henrique</span><br/>
+                        <label for="">Email:</label>
+                        <span>carlossilvameloo@gmail.com</span>
+
+                    </td>
+                    <td>
+                        <a href="" type="button" class="gerenciar btn btn-danger navbar-btn">Excluir</a>
+                    </td>
+
+                </tr>
+                <tr>
+                    <td>
+                        <label for="">Login:</label>
+                        <span>chsm</span><br/>
+                        <label for="">Nome:</label>
+                        <span>carlos henrique</span><br/>
+                        <label for="">Email:</label>
+                        <span>carlossilvameloo@gmail.com</span>
+
+                    </td>
+                    <td>
+                        <a href="#" type="button" class="gerenciar btn btn-danger navbar-btn">Excluir</a>
+                    </td>
+
+                </tr>
+            </table>
+        </div>
+
+        <div class=" divBuscarContatosProf col-md-5">
+            <div class="menuListaTrabalhos">
+
+                <div class="buscarContatoProf col-md-12">
+
+                    <input type="text" placeholder="Buscar novo contato por email" />
+                    <a href="" type="button" class=" btn botaoProfessor navbar-btn">Buscar</a>
+
+                </div>
+
+            </div>
+
+            <br/>
+            <table class="listaContatosProf col-md-12">
+
+                <tr>
+                    <td>
+                        <label for="">Login:</label>
+                        <span>chsm</span><br/>
+                        <label for="">Nome:</label>
+                        <span>carlos henrique</span><br/>
+                        <label for="">Email:</label>
+                        <span>carlossilvameloo@gmail.com</span>
+
+                    </td>
+                    <td>
+                        <a href="" type="button" class="gerenciar btn botaoProfessor navbar-btn">Adicionar</a>
+                    </td>
+
+                </tr>
+                <tr>
+                    <td>
+                        <label for="">Login:</label>
+                        <span>chsm</span><br/>
+                        <label for="">Nome:</label>
+                        <span>carlos henrique</span><br/>
+                        <label for="">Email:</label>
+                        <span>carlossilvameloo@gmail.com</span>
+
+                    </td>
+                    <td>
+                        <a href="" type="button" class="gerenciar btn botaoProfessor navbar-btn">Adicionar</a>
+                    </td>
+
+                </tr>
+            </table>
+        </div>
+
+</h:body>
+</html>

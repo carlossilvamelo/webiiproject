@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1"
+	xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+	<persistence-unit name="webiiproject">
+		<!-- provedor/implementacao do JPA
+		<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+-->
+		<!-- entidade mapeada
+		<class>com.dominio.Identificacao</class>
+		<class>com.dominio.Usuario</class>
+		<class>com.dominio.Discente</class>
+		<class>com.dominio.Docente</class>
+		<class>com.dominio.Endereco</class>
+		<class>com.dominio.Mensagem</class>
+		<class>com.dominio.Trabalho</class>
+		<class>com.dominio.Comentario</class>
+		<class>com.dominio.Atividade</class>
+		<class>com.dominio.MensagemGrupo</class>
+		<class>com.dominio.Arquivo</class>
+
+		<properties>
+
+-->
+			<!-- dados da conexao
+			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
+			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/projetoweb" />
+			<property name="javax.persistence.jdbc.user" value="projetoweb" />
+			<property name="javax.persistence.jdbc.password" value="projetoweb" />
+-->
+<!--
+create-or-extend-tables
+drop-and-create-tables
+create-tables
+-->
+		<non-jta-data-source>java:/PostgresDS</non-jta-data-source>
+	<properties>
+
+			<property name="eclipselink.ddl-generation" value="drop-and-create-tables" />
+
+
+		</properties>
+
+
+	</persistence-unit>
+</persistence>

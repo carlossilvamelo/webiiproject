@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:composite="http://java.sun.com/jsf/composite"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+<h:head>
+    <title>postAcad</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <meta name="description" content="identificação"/>
+    <meta name="author" content=""/>
+    <link rel="icon" href="#{request.contextPath}/resources/imagens/favicon/favicon.ico"/>
+
+
+</h:head>
+<h:body>
+
+    <div  class="navegador col-md-12 navbar navbar-default navbar-fixed-top ">
+        <div id="menuProf" class="container-fluid">
+
+            <div id="imgLogoCabecalho" class="navbar-header ">
+                <a class="navbar-brand" href="#home">
+                    <img alt="Brand" src="#{request.contextPath}/resources/imagens/icone-brand.png"/>
+                </a>
+            </div>
+            <h1>PostAcad</h1>
+
+
+            <div id="dropdownPerfil" class="">
+                DROP
+            </div>
+
+        </div>
+
+
+        <div id="barraNavegacao" class=" barraNavegacaoProfessor span12 navbar-default nav-justified  ">
+            <h:link class="btn btn-default navbar-btn" value="Galeria de trabalhos" outcome="galeria-trabalhos?faces-redirect=true" />
+            <h:link class="btn btn-default navbar-btn" value="Gerenciar contatos" outcome="gerenciar-contatos?faces-redirect=true" />
+            <h:link class="btn btn-default navbar-btn" value="Gerenciar perfil" outcome="perfil-professor?faces-redirect=true" />
+        </div>
+
+    </div>
+
+</h:body>
+</html>
