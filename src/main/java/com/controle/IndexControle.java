@@ -3,48 +3,92 @@ package com.controle;
 
 import com.IServicos.DiscenteLocal;
 import com.IServicos.DocenteLocal;
-import com.servicos.DiscenteServico;
-import com.servicos.DocenteServico;
+import com.IServicos.UsuarioLocal;
+import com.dominio.Discente;
+import com.dominio.Docente;
+import com.dominio.Usuario;
 
 import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
+import javax.faces.context.FacesContext;
 import javax.inject.Named;
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.logging.Logger;
+
 
 @Named
 @RequestScoped
 public class IndexControle implements Serializable {
+    static final Logger LOG = Logger.getLogger(IndexControle.class.getName());
 
     private String cpf;
     private String senha;
+    private boolean erro;
 
     @EJB
     private DiscenteLocal discenteLocal;
     @EJB
     private DocenteLocal docenteLocal;
+    @EJB
+    private UsuarioLocal usuarioLocal;
 
     public IndexControle() {
     }
 
 
-    public void identificarUsuario(){
-        System.out.println("CPF: "+this.cpf);
-        System.out.println("Senha: "+this.senha);
-    }
+    public String identificarUsuario(){
+        LOG.info("CPF: "+this.cpf);
+        LOG.info("Senha: "+this.senha);
+        String retorno = "";
+        Usuario usuario = null;
 
-    public List<String> listarTrabalhos(){
-        ArrayList<String> lista = new ArrayList<>();
+        usuario = usuarioLocal.buscarPorCpf(this.cpf);
 
-        for (int i = 0 ; i<10 ; i++){
+        if(usuario != null){
 
-            lista.add("Trabalho "+i);
+
+            if(usuario.getIdentificacao().getSenha().equals(getSenha())){
+                //autenticado
+                if(usuario.getTipo().equals("Discente")){
+
+                    //buscar o objeto discente
+                    Discente discente = discenteLocal.buscarPorId(usuario.getId());
+
+                    if(discente != null){
+
+                        FacesContext.getCurrentInstance().getExternalContext()
+                                .getSessionMap().put("discente", discente);
+                    }
+                    retorno = "/layout-aluno/index-aluno?faces-redirect=true";
+                }else{
+                    //buscar o objeto docente
+                    Docente docente = docenteLocal.buscarPorId(usuario.getId());
+                    LOG.info(docente.getNome());
+                    if(docente != null){
+
+                        FacesContext.getCurrentInstance().getExternalContext()
+                                .getSessionMap().put("docente", docente);
+                    }
+
+                    retorno = "/layout-professor/index-professor?faces-redirect=true";
+                }
+
+            }else{
+                setErro(true);
+                retorno = "index";
+            }
+
+
+
+
+        }else{
+            setErro(true);
+            retorno = "index";
         }
 
-
-        return lista;
+        return retorno;
     }
+
 
 
     public String logout(){
@@ -73,5 +117,11 @@ public class IndexControle implements Serializable {
         this.senha = senha;
     }
 
+    public boolean isErro() {
+        return erro;
+    }
 
+    public void setErro(boolean erro) {
+        this.erro = erro;
+    }
 }

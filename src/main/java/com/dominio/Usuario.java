@@ -5,7 +5,6 @@ import java.io.Serializable;
 import java.util.Calendar;
 import java.util.List;
 
-import javax.enterprise.inject.Default;
 import javax.persistence.*;
 
 @Entity
@@ -28,8 +27,8 @@ public class Usuario implements Serializable{
 	@Column(name="sobrenome")
 	private String sobreNome;
 	
-	@Column(name="tipo")
-	private String tipo;
+	@Column(name="tipoUsuario")
+	private String tipoUsuario;
 	
 	@Column(name="cpf")
 	private String cpf;
@@ -48,7 +47,7 @@ public class Usuario implements Serializable{
 	private Date dataNascimento;
 
     @OneToOne(cascade = CascadeType.ALL)
-	private Identificacao identidicacao;
+	private Identificacao identificacao;
 	
 	@ElementCollection
 	private List<String> areasConhecimentos;
@@ -68,7 +67,21 @@ public class Usuario implements Serializable{
 		// TODO Auto-generated constructor stub
 	}
 
+	public Long getId() {
+		return id;
+	}
 
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getTipoUsuario() {
+		return tipoUsuario;
+	}
+
+	public void setTipoUsuario(String tipoUsuario) {
+		this.tipoUsuario = tipoUsuario;
+	}
 
 	//esse metodo vai para o clienteService
 	public Integer calcularIdadePorDataNascimento(Calendar dataNascimento){
@@ -130,12 +143,12 @@ public class Usuario implements Serializable{
 
 
 
-	public Identificacao getIdentidicacao() {
-		return identidicacao;
+	public Identificacao getIdentificacao() {
+		return identificacao;
 	}
 
-	public void setIdentidicacao(Identificacao identidicacao) {
-		this.identidicacao = identidicacao;
+	public void setIdentificacao(Identificacao identidicacao) {
+		this.identificacao = identidicacao;
 	}
 
 	public List<String> getAreasConhecimentos() {
@@ -147,11 +160,11 @@ public class Usuario implements Serializable{
 	}
 
 	public String getTipo() {
-		return tipo;
+		return tipoUsuario;
 	}
 
-	public void setTipo(String tipo) {
-		this.tipo = tipo;
+	public void setTipo(String tipoUsuario) {
+		this.tipoUsuario = tipoUsuario;
 	}
 
 

@@ -4,6 +4,7 @@
       xmlns:composite="http://java.sun.com/jsf/composite"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
       xmlns:h="http://java.sun.com/jsf/html">
 <h:head>
     <title>postAcad</title>
@@ -34,6 +35,19 @@
         <ui:include src="header-aluno.xhtml" />
     </ui:insert>
 
+    <p:dialog header="detalhes do trabalho" widgetVar="dlg2" modal="true" height="80%" width="70%">
+
+        <h:form id="modal" style="text-align: center;">
+            <h:outputText style="font-size: x-large" value="#{indexDiscenteControle.trabalhoVisualizado.titulo}"></h:outputText>
+            <br/><br/>
+            <h:outputText style="font-size: medium" value="#{indexDiscenteControle.trabalhoVisualizado.resumo}"></h:outputText>
+            <br/><br/>
+
+
+
+        </h:form>
+
+    </p:dialog>
 
     <div>
 
@@ -42,7 +56,7 @@
 
             <table class="timeLine">
 
-                <ui:repeat value="#{indexDiscenteControle.listarTrabalhos()}" var="trabalho">
+                <ui:repeat value="#{indexDiscenteControle.carregarTimeLine()}" var="trabalho">
 
                     <tr  >
                         <td >
@@ -56,7 +70,13 @@
 
                             <a href="#" type="button" class="btn botaoCurtirComentar glyphicon glyphicon glyphicon-comment"> Comentar</a>
 
-                            <a href="@{/layout-aluno/visualizarTrabalho}" type="button" class="botaoVisualizar btn btn-primary navbar-btn">Visualizar</a>
+                            <h:form>
+                                <p:commandButton  value="Visualizar" class="botaoVisualizar btn btn-default navbar-btn"  oncomplete="PF('dlg2').show();">
+                                    <f:ajax render="modal"
+                                            listener="#{indexDiscenteControle.selecionarTrabalho(trabalho)}"></f:ajax>
+                                </p:commandButton>
+
+                            </h:form>
                             <br/>
                             <div id="'divComentarios' + ${iter.index}" class="divComentarios">
                                 <div  class="col-md-12 ">

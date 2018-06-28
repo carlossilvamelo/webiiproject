@@ -1,16 +1,21 @@
 package com.dao;
 
+import com.servicos.DiscenteServico;
+
 import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 import java.io.Serializable;
 import java.util.List;
+import java.util.logging.Logger;
+
 
 public abstract class GenericDao<T, I extends Serializable> {
-
+    static final Logger LOG = Logger.getLogger(GenericDao.class.getName());
 
    // @PersistenceContext(unitName = "webiiproject")
+   // private  EntityManager entityManager;
     protected EntityManager entityManager=
            Persistence.createEntityManagerFactory("webiiproject").createEntityManager();
 
@@ -21,6 +26,7 @@ public abstract class GenericDao<T, I extends Serializable> {
     }
 
     public T inserir(T entidade){
+        LOG.info("insert DAO");
         getEntityManager().getTransaction().begin();
         getEntityManager().persist(entidade);
         getEntityManager().getTransaction().commit();
@@ -59,7 +65,8 @@ public abstract class GenericDao<T, I extends Serializable> {
 
     public List<T> listarTodos(){
         getEntityManager().getTransaction().begin();
-        TypedQuery<T> query = getEntityManager().createQuery("SELECT t FROM "+entidadePersistida.getName()+" t", entidadePersistida);
+        TypedQuery<T> query = getEntityManager()
+                .createQuery("SELECT t FROM "+entidadePersistida.getName()+" t", entidadePersistida);
         getEntityManager().getTransaction().commit();
         return query.getResultList();
     }

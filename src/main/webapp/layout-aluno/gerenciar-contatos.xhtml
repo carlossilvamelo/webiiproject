@@ -51,37 +51,28 @@
             <br/>
             <table class="listaContatos col-md-12">
 
-                <tr>
-                    <td>
-                        <label>Login:</label>
-                        <span>chsm</span><br/>
-                        <label>Nome:</label>
-                        <span>carlos henrique</span><br/>
-                        <label>Email:</label>
-                        <span>carlossilvameloo@gmail.com</span>
-                    </td>
+                <ui:repeat value="#{contatosDiscenteControle.listarContatos()}" var="contato">
+                    <tr>
+                        <td>
+                            <label >Login:</label>
+                            <span>#{contato.identificacao.login}</span><br/>
+                            <label >Nome:</label>
+                            <span>#{contato.nome}</span><br/>
+                            <label>Email:</label>
+                            <span>#{contato.email}</span>
+                        </td>
 
-                    <td>
-                        <a href="#" type="button" class="gerenciar btn btn-danger navbar-btn">Excluir</a>
-                    </td>
+                        <td>
 
-                </tr>
-                <tr>
-                    <td>
-                        <label >Login:</label>
-                        <span>chsm</span><br/>
-                        <label >Nome:</label>
-                        <span>carlos henrique</span><br/>
-                        <label >Email:</label>
-                        <span>carlossilvameloo@gmail.com</span>
+                            <h:form>
+                                <h:commandButton styleClass="gerenciar btn btn-danger navbar-btn" value="Excluir"
+                                action="#{contatosDiscenteControle.excluirContato(contato)}"></h:commandButton>
+                            </h:form>
+                        </td>
 
-                    </td>
-                    <td>
-                        <a href="#" type="button" class="gerenciar btn btn-danger navbar-btn">Excluir</a>
+                    </tr>
+                </ui:repeat>
 
-                    </td>
-
-                </tr>
             </table>
         </div>
 
@@ -98,40 +89,33 @@
             </div>
 
             <br/>
+
             <table class="listaContatos col-md-12">
 
-                <tr>
-                    <td>
-                        <label >Login:</label>
-                        <span>chsm</span><br/>
-                        <label >Nome:</label>
-                        <span>carlos henrique</span><br/>
-                        <label>Email:</label>
-                        <span>carlossilvameloo@gmail.com</span>
+                <ui:repeat value="#{contatosDiscenteControle.listarTodosUsuarios()}" var="usuario">
+                    <ui:fragment rendered="#{usuario.id != contatosDiscenteControle.discenteSessao.id}">
+                        <tr>
+                            <td>
+                                <label >Login:</label>
+                                <span>#{usuario.identificacao.login}</span><br/>
+                                <label >Nome:</label>
+                                <span>#{usuario.nome}</span><br/>
+                                <label>Email:</label>
+                                <span>#{usuario.email}</span>
 
-                    </td>
-                    <td>
+                            </td>
+                            <td>
 
-                        <h:commandButton styleClass="gerenciar btn btn-primary navbar-btn" value="Adicionar"></h:commandButton>
-                    </td>
+                                <h:form>
+                                    <h:commandButton styleClass="gerenciar btn btn-primary navbar-btn" value="Adicionar"
+                                                     action="#{contatosDiscenteControle.adicionarContato(usuario)}" ></h:commandButton>
+                                </h:form>
+                            </td>
 
-                </tr>
-                <tr>
-                    <td>
-                        <label >Login:</label>
-                        <span>chsm</span><br/>
-                        <label >Nome:</label>
-                        <span>carlos henrique</span><br/>
-                        <label >Email:</label>
-                        <span>carlossilvameloo@gmail.com</span>
+                        </tr>
+                    </ui:fragment>
+                </ui:repeat>
 
-                    </td>
-                    <td>
-
-                        <h:commandButton styleClass="gerenciar btn btn-primary navbar-btn" value="Adicionar"></h:commandButton>
-                    </td>
-
-                </tr>
             </table>
         </div>
 

@@ -3,7 +3,6 @@ package com.dao;
 import com.dominio.*;
 import org.junit.Test;
 
-import javax.ejb.EJB;
 import javax.persistence.Persistence;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -11,14 +10,12 @@ import java.util.Date;
 import java.util.List;
 import java.util.logging.Logger;
 
-import static org.junit.Assert.*;
-
 public class DiscenteDaoTest implements ICrudTest{
     private static final Logger LOG = Logger.getLogger(DiscenteDaoTest.class.getName());
 
     DiscenteDao discenteDao = new DiscenteDao();
     TrabalhoDao trabalhoDao = new TrabalhoDao();
-
+    UsuarioDao usuarioDao = new UsuarioDao();
 
     @Test
     @Override
@@ -33,7 +30,8 @@ public class DiscenteDaoTest implements ICrudTest{
     @Test
     @Override
     public void buscarPorId() {
-
+        Usuario usuario = usuarioDao.buscarPorCpf("906369470");
+        LOG.info(usuario.getNome());
     }
 
     @Test
@@ -81,7 +79,7 @@ public class DiscenteDaoTest implements ICrudTest{
         Discente discente = new Discente();
         discente.setNome("carlos");
         discente.setMatricula("1321654");
-        discente.setCpf("0906369470");
+        discente.setCpf("906369470");
         discente.setReputacao("boa reputação");
         discente.setCurriculo("curriculo");
         discente.setEmail("xxx@xxx.com");

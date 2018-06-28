@@ -5,6 +5,7 @@
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
       xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
 <h:head>
     <title>postAcad</title>
@@ -32,70 +33,100 @@
 
 
 
+
+    <p:dialog header="detalhes do trabalho" widgetVar="dlg2" modal="true" height="80%" width="70%">
+
+        <h:form id="modal" style="text-align: center;">
+            <h:outputText style="font-size: x-large" value="#{indexDocenteControle.trabalhoVisualizado.titulo}"></h:outputText>
+            <br/><br/>
+            <h:outputText style="font-size: medium" value="#{indexDocenteControle.trabalhoVisualizado.resumo}"></h:outputText>
+            <br/><br/>
+
+
+
+        </h:form>
+
+    </p:dialog>
+
+
+
+
         <div id="divConteudoProf" class="container-fluid col-sm-push-1 col-md-7 ">
 
             <table class="timeLine">
-                <tr >
-                    <td>
-                        <h2 >Titulo</h2>
-                        <p >Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
 
-                        <a href="#" class="botaoCurtirComentar glyphicon glyphicon-thumbs-up" > Curtir</a>
-                        <a href="#" type="button" class="btn botaoCurtirComentar glyphicon glyphicon glyphicon-comment"> Comentar</a>
+                <ui:repeat value="#{indexDocenteControle.carregarTimeLine()}" var="trabalho">
 
-                        <a href="#" type="button" class="botaoVisualizar btn btn-default navbar-btn" onclick="fecharAbrirChat('divVisualizarTrabalho')">Visualizar</a>
+                    <tr >
+                        <td>
+                            <h2 >#{trabalho.titulo}</h2>
+                            <p >#{trabalho.resumo}</p>
 
+                            <a href="#" class="botaoCurtirComentar glyphicon glyphicon-thumbs-up" > Curtir</a>
+                            <a href="#" type="button" class="btn botaoCurtirComentar glyphicon glyphicon glyphicon-comment"> Comentar</a>
 
-                        <div class="divComentarios">
-                            <div  class="col-md-12 ">
-                                <div class="panel panel-default">
-                                    <div class="panel-heading">
-                                        <span class="glyphicon glyphicon-comment"></span> Comentários
-                                    </div>
-                                    <div >
-                                        <ul class="chat caixaComentarios">
+                            <h:form>
+                                <p:commandButton  value="Visualizar" class="botaoVisualizar btn btn-default navbar-btn"  oncomplete="PF('dlg2').show();">
+                                    <f:ajax render="modal"
+                                            listener="#{indexDocenteControle.selecionarTrabalho(trabalho)}"></f:ajax>
+                                </p:commandButton>
 
-                                            <li class="chatTextLeft ">
-                                                <span>Nome:</span>
-                                                <p>Que legal o trabalho de vocês!</p>
-                                            </li>
+                            </h:form>
 
 
-                                        </ul>
-                                    </div>
 
-                                    <div class="panel-footer">
-                                        <div class="input-group">
-                                            <input  type="text" class="form-control input-sm" placeholder="Mensagem.." />
-                                            <span class="input-group-btn">
-                            <button class="btn btn-warning btn-sm" >
-                                Send</button>
-                        </span>
+                            <div class="divComentarios">
+                                <div  class="col-md-12 ">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <span class="glyphicon glyphicon-comment"></span> Comentários
+                                        </div>
+                                        <div >
+                                            <ul class="chat caixaComentarios">
+
+                                                <li class="chatTextLeft ">
+                                                    <span>Nome:</span>
+                                                    <p>Que legal o trabalho de vocês!</p>
+                                                </li>
+
+
+                                            </ul>
+                                        </div>
+
+                                        <div class="panel-footer">
+                                            <div class="input-group">
+                                                <input  type="text" class="form-control input-sm" placeholder="Mensagem.." />
+                                                <span class="input-group-btn">
+                                                    <button class="btn btn-warning btn-sm" >
+                                                        Send</button>
+                                                </span>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
 
-                    </td>
-
+                        </td>
 
 
 
-                    <div id="divVisualizarTrabalho" class="visualizarTrabalho">
-                        <span onclick="fecharAbrirChat('divVisualizarTrabalho')"  style="float: right" class=" glyphicon glyphicon-remove"></span>
-                        asdasdasd
-
-                    </div>
-                </tr>
 
 
+
+                    </tr>
+
+                </ui:repeat>
+                <div id="divVisualizarTrabalho" class="visualizarTrabalho">
+                    <span onclick="fecharAbrirChat('divVisualizarTrabalho')"  style="float: right" class=" glyphicon glyphicon-remove"></span>
+                    asdasdasd
+
+                </div>
             </table>
 
 
         </div>
+
+
 
 
         <div id="divLadoDireito" class="col-md-3">
@@ -110,12 +141,14 @@
                 <div class="listaContatos">
                     <table>
 
-                        <tr class="">
-                            <td><h4>contato 2</h4>
-                                <a onclick="fecharAbrirChat('caixaDeChats')" href="#" type="button" class="btn btn-default navbar-btn">Conversar</a>
-                            </td>
+                        <ui:repeat value="#{indexDocenteControle.listarContatos()}" var="contato">
+                            <tr class="">
+                                <td><h4>#{contato.nome}</h4>
+                                    <a  type="button" class="btn btn-default navbar-btn" onclick="fecharAbrirChat('caixaDeChats')">Conversar</a>
+                                </td>
 
-                        </tr>
+                            </tr>
+                        </ui:repeat>
 
                     </table>
 

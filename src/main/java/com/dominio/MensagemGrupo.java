@@ -2,7 +2,6 @@ package com.dominio;
 
 import java.io.Serializable;
 import java.sql.Date;
-import java.util.GregorianCalendar;
 
 import javax.persistence.*;
 

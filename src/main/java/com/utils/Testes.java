@@ -3,9 +3,6 @@ package com.utils;
 import com.dao.DiscenteDao;
 import com.dominio.Discente;
 
-import javax.ejb.EJB;
-import javax.persistence.EntityManager;
-import javax.persistence.Persistence;
 import java.util.List;
 import java.util.logging.Logger;
 

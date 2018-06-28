@@ -50,27 +50,29 @@
 
 
             <br/>
-            <table class="meusTrabalhosProf">
-                <tr>
-                    <td>
-                        <h2>Titulo</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+            <table class="meusTrabalhosProf col-md-12" >
+                <ui:repeat value="#{galeriaTrabalhosControle.carregarTimeLine()}" var="trabalho">
+
+                    <tr>
+                        <td>
+                            <h2>#{trabalho.titulo}</h2>
+                            <p>#{trabalho.resumo}</p>
 
 
-                        <a href="#" type="button" class="gerenciar btn botaoProfessor navbar-btn" onclick="fecharAbrirChat('divVisualizarTrabalho')">Visualizar</a>
-                        <br/>
-                    </td>
-                    <div id="divVisualizarTrabalho" class="visualizarTrabalho">
-                        <span onclick="fecharAbrirChat('divVisualizarTrabalho')"  style="float: right" class=" glyphicon glyphicon-remove"></span>
+                            <a href="#" type="button" class="gerenciar btn botaoProfessor navbar-btn" onclick="fecharAbrirChat('divVisualizarTrabalho')">Visualizar</a>
+                            <br/>
+                        </td>
+                        <div id="divVisualizarTrabalho" class="visualizarTrabalho">
+                            <span onclick="fecharAbrirChat('divVisualizarTrabalho')"  style="float: right" class=" glyphicon glyphicon-remove"></span>
 
-                        <h4>Avaliação do professor</h4>
-                        <textarea name="textoAvaliacao" cols="30" rows="10"></textarea>
-                        <a href="#" type="button" class="gerenciar btn botaoProfessor navbar-btn" >Avaliar</a>
+                            <h4>Avaliação do professor</h4>
+                            <textarea name="textoAvaliacao" cols="30" rows="10"></textarea>
+                            <a href="#" type="button" class="gerenciar btn botaoProfessor navbar-btn" >Avaliar</a>
 
-                    </div>
-                </tr>
+                        </div>
+                    </tr>
+
+                </ui:repeat>
             </table>
         </div>
 

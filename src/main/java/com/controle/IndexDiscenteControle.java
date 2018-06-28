@@ -1,13 +1,19 @@
 package com.controle;
 
+import com.IServicos.TrabalhoLocal;
+import com.dominio.Discente;
 import com.dominio.Trabalho;
 import com.dominio.Usuario;
+import com.servicos.TrabalhoServico;
 
+import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
+import javax.faces.context.FacesContext;
 import javax.inject.Named;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
 /**
  *
@@ -16,9 +22,20 @@ import java.util.List;
 @Named
 @RequestScoped
 public class IndexDiscenteControle implements Serializable{
+    static final Logger LOG = Logger.getLogger(IndexDiscenteControle.class.getName());
 
+    private Discente discenteSessao;
+
+    @EJB
+    private TrabalhoLocal trabalhoLocal;
+    private Trabalho trabalhoVisualizado;
 
     public IndexDiscenteControle() {
+        this.discenteSessao = (Discente) FacesContext.getCurrentInstance()
+                .getExternalContext().getSessionMap().get("discente");
+
+        LOG.info("Sessao: "+discenteSessao.getNome());
+
     }
 
     /**
@@ -26,21 +43,21 @@ public class IndexDiscenteControle implements Serializable{
      *
      * @return trabalhos -  lista de trabalhos do discente
      */
-    public List<Trabalho> listarTrabalhos(){
-        ArrayList<Trabalho> trabalhos = new ArrayList<>();
-        Trabalho trabalho;
+    public List<Trabalho> carregarTimeLine(){
 
-        for (int i = 0 ; i<4 ; i++){
-            trabalho = new Trabalho();
-            trabalho.setId(new Long(1L));
-            trabalho.setCurtidas(i);
-            trabalho.setTitulo("Trabalho "+i);
-            trabalho.setResumo("Resumo do trabalho "+i);
-            trabalhos.add(trabalho);
-        }
+        return this.trabalhoLocal.listarTodos();
+    }
+    public void selecionarTrabalho(Trabalho trabalho){
 
-        System.out.println("tamanho: "+trabalhos.size());
-        return trabalhos;
+        this.trabalhoVisualizado = trabalho;
+
+    }
+
+
+    public void logout(){
+        FacesContext.getCurrentInstance().getExternalContext()
+                .getSessionMap().put("discente", null);
+
     }
 
 
@@ -50,17 +67,23 @@ public class IndexDiscenteControle implements Serializable{
      * @return contatos - lista de contatos
      */
     public List<Usuario> listarContatos(){
-        ArrayList<Usuario> contatos = new ArrayList<>();
-        Usuario usuario;
 
-        for (int i = 0 ; i<4 ; i++){
-            usuario = new Usuario();
-            usuario.setNome("Contato "+i);
-            contatos.add(usuario);
-        }
-
-        return contatos;
+        return discenteSessao.getContatos();
     }
 
+    public Discente getDiscenteSessao() {
+        return discenteSessao;
+    }
 
+    public void setDiscenteSessao(Discente discenteSessao) {
+        this.discenteSessao = discenteSessao;
+    }
+
+    public Trabalho getTrabalhoVisualizado() {
+        return trabalhoVisualizado;
+    }
+
+    public void setTrabalhoVisualizado(Trabalho trabalhoVisualizado) {
+        this.trabalhoVisualizado = trabalhoVisualizado;
+    }
 }

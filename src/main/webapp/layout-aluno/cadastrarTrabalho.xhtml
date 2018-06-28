@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:composite="http://java.sun.com/jsf/composite"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+    <h:head>
+        <title>postAcad</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+        <meta name="description" content="identificação"/>
+        <meta name="author" content=""/>
+        <link rel="icon" href="#{request.contextPath}/resources/imagens/favicon/favicon.ico"/>
+
+        <link href="#{request.contextPath}/resources/css-bootstrap/bootstrap.min.css" rel="stylesheet"/>
+        <link href="#{request.contextPath}/resources/css/css_index.css" rel="stylesheet"/>
+        <link href="#{request.contextPath}/resources/css-bootstrap/ie10-viewport-bug-workaround.css" rel="stylesheet"/>
+        <link href="#{request.contextPath}/resources/css-bootstrap/signin.css" rel="stylesheet"/>
+        <script src="#{request.contextPath}/resources/js-bootstrap/bootstrap.js" type="application/javascript"></script>
+
+
+
+
+    </h:head>
+    <h:body style="padding-left: 30%;">
+
+        <h1> Cadastrar novo trabalho</h1>
+
+        <h:form >
+
+            <br/>
+            <h:inputText id="titulo" value="#{trabalhoControle.novoTrabalho.titulo}"> </h:inputText><br/>
+            <br/>
+            <h:inputText  id="resumo" value="#{trabalhoControle.novoTrabalho.resumo}"> </h:inputText><br/>
+            <br/>
+
+            <h:commandButton value="Cadastrar" action="#{trabalhoControle.cadastrarTrabalho()}"></h:commandButton>
+
+        </h:form>
+
+
+    </h:body>
+</html>

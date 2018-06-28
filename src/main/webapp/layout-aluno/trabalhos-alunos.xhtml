@@ -40,7 +40,10 @@
             <h1>Meus trabalhos</h1>
 
             <div class="menuListaTrabalhos">
-                <a href="#" type="button" class="criarNovoTrabalho btn btn-primary navbar-btn">Criar novo trabalho</a>
+                <h:form>
+                     <h:commandButton class="criarNovoTrabalho btn btn-primary navbar-btn"
+                                      action="cadastrarTrabalho?faces-redirect=true" value="Criar novo trabalho"></h:commandButton>
+                </h:form>
                 <div class="buscarTrabalho">
 
                     <h:inputText pt:placeholder="Titulo/palavra chave"></h:inputText>
@@ -53,20 +56,30 @@
 
 
             <br/>
-            <table class="meusTrabalhos">
-                <tr>
-                    <td>
-                        <h2>Titulo</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+
+            <table class="meusTrabalhos col-md-12">
 
 
-                        <h:commandButton styleClass="gerenciar btn btn-primary navbar-btn" value="Gerenciar"></h:commandButton>
-                        <br/>
 
-                    </td>
+
+                    <ui:repeat value="#{trabalhosDiscenteControle.listarTrabalhos()}" var="trabalho">
+                        <tr>
+                        <td>
+                            <h2>#{trabalho.titulo}</h2>
+                            <p>#{trabalho.resumo}</p>
+
+                            <h:form>
+                                 <h:commandButton styleClass="gerenciar btn btn-primary navbar-btn"
+                                                  action="#{trabalhosDiscenteControle.gerenciarTrabalho(trabalho)}"
+                                                  value="Gerenciar"></h:commandButton>
+                            </h:form>
+                            <br/>
+
+                        </td>
+
                 </tr>
+                    </ui:repeat>
+
             </table>
         </div>
 

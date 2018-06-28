@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:composite="http://java.sun.com/jsf/composite"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+<h:head>
+    <title>postAcad</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <meta name="description" content="identificação"/>
+    <meta name="author" content=""/>
+    <link rel="icon" href="#{request.contextPath}/resources/imagens/favicon/favicon.ico"/>
+
+    <link rel="stylesheet" href="#{request.contextPath}/resources/css-bootstrap/bootstrap.min.css"></link>
+    <link href="#{request.contextPath}/resources/css/css_cadastro.css" rel="stylesheet"></link>
+    <link href="#{request.contextPath}/resources/css-bootstrap/ie10-viewport-bug-workaround.css" rel="stylesheet"></link>
+    <link href="css-bootstrap/signin.css" rel="stylesheet"/>
+    <link href="#{request.contextPath}/resources/css-bootstrap/signin.css" rel="stylesheet"></link>
+    <script src="#{request.contextPath}/resources/js-bootstrap/bootstrap.js" type="text/javascript"></script>
+    <script src="#{request.contextPath}/resources/js-bootstrap/ie-emulation-modes-warning.js" type="text/javascript"></script>
+
+
+</h:head>
+<h:body styleClass="fundo">
+
+    <div class="fixLeft">&nbsp;</div>
+
+    <div class="divDadosCadastro ">
+
+        <h:form class="formCadastro form-signin">
+            <h2 class="form-signin-heading text-center">Crie uma nova conta!</h2>
+
+            <h:inputText value="#{cadastroControle.nome}" pt:placeholder="Nome" id="inputNome" styleClass="form-control itensForm"/>
+            <h:inputText value="#{cadastroControle.sobreNome}" pt:placeholder="Sobrenome"  id="inputSobreNome" styleClass="form-control itensForm"/>
+
+            <h:inputText value="#{cadastroControle.cpf}" id="inputCpf" pt:placeholder="CPF" maxlength="11" class="form-control itensForm" />
+
+            <h:inputText value="#{cadastroControle.senha}" pt:placeholder="Senha" id="inputPassword" styleClass="form-control itensForm" />
+
+            <h:selectOneRadio value="#{cadastroControle.tipo}">
+                <f:selectItem itemValue="Docente" itemLabel="Docente" />
+                <f:selectItem itemValue="Discente" itemLabel="Discente" />
+            </h:selectOneRadio>
+
+            <h:commandButton styleClass="btn btn-lg btn-primary btn-block" value="Criar nova conta" action="#{cadastroControle.cadastrarUsuario()}"></h:commandButton>
+        </h:form>
+
+
+    </div>
+
+    <div class="divInfoCadastro">
+
+        <h:graphicImage styleClass="img-responsive center-block imgLogo" value="/resources/imagens/escudo.png"></h:graphicImage>
+        <p>
+            Seja bem-vindo ao PostAcad, a rede social de apoio aos trabalhos acadêmicos.
+            Com o PostAcad você e sua equipe teram a possibilidade de organizar os grupos e as atividades
+            vinculadas aos trabalhos realizados a cada semestre, vamos trabalhar!
+        </p>
+
+        <h:graphicImage value="/resources/imagens/coworking.png" styleClass="img-responsive center-block imgCoworking"></h:graphicImage>
+    </div>
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="js-bootstrap/ie10-viewport-bug-workaround.js" type="text/javascript"></script>
+
+</h:body>
+</html>

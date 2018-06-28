@@ -35,20 +35,24 @@
 
 
 
-        <div class="divGerenciarTrabalho container-fluid col-sm-push-1 col-md-7">
+        <div class="divGerenciarTrabalho container-fluid col-sm-push-1 col-md-6">
 
             <div id="divInfoTrabalho" class="divInfoTrabalho col-md-12">
                 <h3>Informações do trabalho</h3>
                 <table class="col-md-12">
                     <thead>
                     <th>Titulo</th>
+                        <th>Resumo</th>
                     <th>Ações</th>
                     </thead>
 
                     <tbody>
                     <tr>
                         <td>
-                            <span>projeto postacad</span>
+                            <span>#{trabalhoControle.trabalho.titulo}</span>
+                        </td>
+                        <td>
+                            <span>#{trabalhoControle.trabalho.resumo}</span>
                         </td>
                         <td>
                             <a href="#"  class="btn btn-default "> Excluir</a>
@@ -126,7 +130,7 @@
                         </td>
                         <td>
 
-                            <span>Descriçãoasaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaasssssssssssssssa</span>
+                            <span>Descrição</span>
 
                         </td>
                         <td>
@@ -204,22 +208,24 @@
             </div>
         </div>
 
-        <div id="divLadoDireito" class="divIntegrantes col-md-3">
+        <div id="divLadoDireito" class="divIntegrantes col-sm-push-2 col-md-3">
             <h3>Integrantes</h3>
 
             <table class="col-md-12">
 
 
 
-                <tr>
-                    <td>
-                        <span>Integrante 1</span>
+                <ui:repeat value="#{trabalhoControle.trabalho.discentes}" var="integrante">
+                    <tr>
+                        <td>
+                            <span>#{integrante.nome}</span>
 
-                    </td>
-                    <td>
-                        <a type="button" class="btn btn-danger ">Excluir</a>
-                    </td>
-                </tr>
+                        </td>
+                        <td>
+                            <a type="button" class="btn btn-danger ">Excluir</a>
+                        </td>
+                    </tr>
+                </ui:repeat>
 
 
 

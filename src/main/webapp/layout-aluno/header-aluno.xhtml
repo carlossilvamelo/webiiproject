@@ -32,7 +32,7 @@
         <div id="menu" class="container-fluid">
 
             <div id="imgLogoCabecalho" class="navbar-header ">
-                <a class="navbar-brand" href="#home">
+                <a class="navbar-brand" href="index-aluno.xhtml">
                     <img alt="Brand" src="#{request.contextPath}/resources/imagens/icone-brand.png"/>
                 </a>
 
@@ -41,10 +41,11 @@
 
                 <div id="dropdownPerfil" class="">
                     <li>
-                        <span class="glyphicon glyphicon-user" >nome</span>
+                        <span class="glyphicon glyphicon-user" >#{indexDiscenteControle.discenteSessao.nome}</span>
                             <ul>
                                 <h:form>
-                                <h:commandButton value="Logout" action="/../index?faces-redirect=true"></h:commandButton>
+
+                                    <a href="http://localhost:8080/webiiproject">Logout</a>
                                 </h:form>
                             </ul>
 

@@ -39,6 +39,12 @@
 
 
         <h:form styleClass="form-signin">
+
+
+            <h:outputScript rendered="#{indexControle.erro}">
+                alert("Dados incorretos!");
+            </h:outputScript>
+
             <h2 class="form-signin-heading text-center heading-login">Identifique-se</h2>
             <label for="inputEmail" class="sr-only ">Cpf</label>
             <h:inputText value="#{indexControle.cpf}" pt:placeholder="CPF" id="inputEmail" maxlength="11" styleClass="form-control itensForm"   />
@@ -46,8 +52,7 @@
             <h:inputText value="#{indexControle.senha}" pt:placeholder="Senha" id="inputPassword" styleClass="form-control itensForm"  />
 
             <h:commandButton styleClass="btn btn-lg btn-primary btn-block" action="#{indexControle.identificarUsuario()}" value="Entrar"></h:commandButton>
-        <h:commandButton value="index-aluno" action="/layout-aluno/index-aluno?faces-redirect=true"></h:commandButton>
-        <h:commandButton value="index-prof" action="/layout-professor/index-professor?faces-redirect=true"></h:commandButton>
+
 
         </h:form>
 

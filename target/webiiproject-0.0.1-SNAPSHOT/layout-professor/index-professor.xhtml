@@ -1,0 +1,165 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:composite="http://java.sun.com/jsf/composite"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+<h:head>
+    <title>postAcad</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <meta name="description" content="identificação"/>
+    <meta name="author" content=""/>
+    <link rel="icon" href="#{request.contextPath}/resources/imagens/favicon/favicon.ico"/>
+
+    <link href="#{request.contextPath}/resources/css-bootstrap/bootstrap.css" rel="stylesheet"/>
+    <link href="#{request.contextPath}/resources/css/global.css" rel="stylesheet"/>
+    <link href="#{request.contextPath}/resources/css/css_index-aluno.css" rel="stylesheet"/>
+    <link href="#{request.contextPath}/resources/css/css_barra-navegacao-aluno.css" rel="stylesheet"/>
+
+    <script type="text/javascript" src="#{request.contextPath}/resources/js-bootstrap/ie-emulation-modes-warning.js" ></script>
+    <script type="text/javascript" src="#{request.contextPath}/resources/js/global.js"></script>
+
+</h:head>
+<h:body styleClass="backColor">
+
+    <ui:insert name="header" >
+        <ui:include src="header-professor.xhtml" />
+    </ui:insert>
+
+
+
+        <div id="divConteudoProf" class="container-fluid col-sm-push-1 col-md-7 ">
+
+            <table class="timeLine">
+                <tr >
+                    <td>
+                        <h2 >Titulo</h2>
+                        <p >Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+
+                        <a href="#" class="botaoCurtirComentar glyphicon glyphicon-thumbs-up" > Curtir</a>
+                        <a href="#" type="button" class="btn botaoCurtirComentar glyphicon glyphicon glyphicon-comment"> Comentar</a>
+
+                        <a href="#" type="button" class="botaoVisualizar btn btn-default navbar-btn" onclick="fecharAbrirChat('divVisualizarTrabalho')">Visualizar</a>
+
+
+                        <div class="divComentarios">
+                            <div  class="col-md-12 ">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <span class="glyphicon glyphicon-comment"></span> Comentários
+                                    </div>
+                                    <div >
+                                        <ul class="chat caixaComentarios">
+
+                                            <li class="chatTextLeft ">
+                                                <span>Nome:</span>
+                                                <p>Que legal o trabalho de vocês!</p>
+                                            </li>
+
+
+                                        </ul>
+                                    </div>
+
+                                    <div class="panel-footer">
+                                        <div class="input-group">
+                                            <input  type="text" class="form-control input-sm" placeholder="Mensagem.." />
+                                            <span class="input-group-btn">
+                            <button class="btn btn-warning btn-sm" >
+                                Send</button>
+                        </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </td>
+
+
+
+
+                    <div id="divVisualizarTrabalho" class="visualizarTrabalho">
+                        <span onclick="fecharAbrirChat('divVisualizarTrabalho')"  style="float: right" class=" glyphicon glyphicon-remove"></span>
+                        asdasdasd
+
+                    </div>
+                </tr>
+
+
+            </table>
+
+
+        </div>
+
+
+        <div id="divLadoDireito" class="col-md-3">
+
+            <div class="panel panel-primary">
+
+                <div class="panel-heading" style="background-color: var(--profVerde);">
+                    <span class="glyphicon glyphicon-user"></span> contatos
+
+                </div>
+
+                <div class="listaContatos">
+                    <table>
+
+                        <tr class="">
+                            <td><h4>contato 2</h4>
+                                <a onclick="fecharAbrirChat('caixaDeChats')" href="#" type="button" class="btn btn-default navbar-btn">Conversar</a>
+                            </td>
+
+                        </tr>
+
+                    </table>
+
+                </div>
+
+            </div>
+        </div>
+
+
+
+
+
+        <div id="caixaDeChats" class="col-md-5 navbar-fixed-top ">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <span class="glyphicon glyphicon-comment"></span> Chat
+                    <span onclick="fecharAbrirChat('caixaDeChats')" style="float: right" class=" glyphicon glyphicon-remove"></span>
+                </div>
+                <div class="caixaTextChat">
+                    <ul class="chat">
+
+                        <li class="chatTextLeft">
+                            <p>Vamos marcar uma reunião?</p>
+                        </li>
+                        <li class="chatTextRight">
+                            <p>Vamos!</p>
+                        </li>
+
+
+                    </ul>
+                </div>
+
+                <div class="panel-footer">
+                    <div class="input-group">
+                        <input id="btn-input" type="text" class="form-control input-sm" placeholder="Mensagem.." />
+                        <span class="input-group-btn">
+                            <button class="btn btn-warning btn-sm" id="btn-chat">
+                                Send</button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+</h:body>
+</html>

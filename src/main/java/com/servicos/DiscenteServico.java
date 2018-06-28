@@ -1,10 +1,8 @@
 package com.servicos;
 
 import com.IServicos.DiscenteLocal;
-import com.dao.DaoFacade;
 import com.dominio.Discente;
 
-import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import java.util.List;
@@ -16,7 +14,7 @@ public class DiscenteServico implements DiscenteLocal{
 
 
     @EJB
-    private DaoFacade daoFacade;
+    private FachadaDaoServico fachadaDaoServico;
 
 
 
@@ -24,32 +22,32 @@ public class DiscenteServico implements DiscenteLocal{
     public Discente inserir(Discente entidade) {
        LOG.info(entidade.getNome());
        LOG.info(entidade.getCpf());
-
-        // daoFacade.getDiscenteDao().inserir(entidade);
+        LOG.info("SERVIÇO     public Discente inserir(Discente entidade)");
+        fachadaDaoServico.getDiscenteDao().inserir(entidade);
         return entidade;
     }
 
     @Override
     public Discente atualizar(Discente entidade) {
-        daoFacade.getDiscenteDao().atualizar(entidade);
+        fachadaDaoServico.getDiscenteDao().atualizar(entidade);
         return entidade;
     }
 
     @Override
     public Discente remover(Discente entidade) {
-        daoFacade.getDiscenteDao().remover(entidade);
+        fachadaDaoServico.getDiscenteDao().remover(entidade);
         return entidade;
     }
 
     @Override
     public Discente buscar(Discente entidade) {
-        daoFacade.getDiscenteDao().buscar(entidade);
+        fachadaDaoServico.getDiscenteDao().buscar(entidade);
         return entidade;
     }
 
     @Override
     public Discente buscarPorId(Long id) {
-        Discente discente = null;
+        Discente discente = fachadaDaoServico.getDiscenteDao().buscarPorId(id);
         return discente;
     }
 

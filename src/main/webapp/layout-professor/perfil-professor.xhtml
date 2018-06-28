@@ -42,13 +42,13 @@
         <table>
             <tr>
                 <td>
-                    <p>Nome:</p> <span></span> <a
+                    <p>Nome:</p> <h:outputLabel value="#{perfilDocenteControle.docente.nome}"></h:outputLabel> <a
                         type="button" class="btn botaoProfessor "
                         onclick="mudarEstado('divNome')">Editar</a> <br/>
                     <div id="divNome" class="edicao">
                         <h:form>
-                            <h:inputText pt:placeholder="Nome"></h:inputText>
-                            <h:commandButton value="Salvar"></h:commandButton>
+                            <h:inputText value="#{perfilDocenteControle.docente.nome}" pt:placeholder="Nome"></h:inputText>
+                            <h:commandButton action="#{perfilDocenteControle.atualizar}" value="Salvar"></h:commandButton>
                         </h:form>
                     </div>
                 </td>
@@ -56,14 +56,14 @@
 
             <tr>
                 <td>
-                    <p>Sobrenome:</p> <span></span> <a type="button"
+                    <p>Sobrenome:</p> <h:outputLabel value="#{perfilDocenteControle.docente.sobreNome}"></h:outputLabel> <a type="button"
                                                        class="btn botaoProfessor "
                                                        onclick="mudarEstado('divSobrenome')">Editar</a>
                     <br/>
                     <div id="divSobrenome" class="edicao">
                         <h:form>
-                            <h:inputText pt:placeholder="Sobrenome"></h:inputText>
-                            <h:commandButton value="Salvar"></h:commandButton>
+                            <h:inputText value="#{perfilDocenteControle.docente.sobreNome}" pt:placeholder="Sobrenome"></h:inputText>
+                            <h:commandButton action="#{perfilDocenteControle.atualizar}" value="Salvar"></h:commandButton>
                         </h:form>
                     </div>
                 </td>
@@ -71,15 +71,15 @@
 
             <tr>
                 <td>
-                    <p>Email:</p> <span></span> <a href="#" type="button"
+                    <p>Email:</p> <h:outputLabel value="#{perfilDocenteControle.docente.email}"></h:outputLabel> <a href="#" type="button"
                                                    class="btn botaoProfessor "
                                                    onclick="mudarEstado('divEmail')">Editar</a>
                     <br/>
                     <div id="divEmail" class="edicao">
 
                         <h:form>
-                            <h:inputText pt:placeholder="Email"></h:inputText>
-                            <h:commandButton value="Salvar"></h:commandButton>
+                            <h:inputText value="#{perfilDocenteControle.docente.email}" pt:placeholder="Email"></h:inputText>
+                            <h:commandButton action="#{perfilDocenteControle.atualizar}" value="Salvar"></h:commandButton>
                         </h:form>
                     </div>
                 </td>
@@ -87,15 +87,15 @@
 
             <tr>
                 <td>
-                    <p>CPF:</p> <span></span> <a type="button"
+                    <p>CPF:</p> <h:outputLabel value="#{perfilDocenteControle.docente.cpf}"></h:outputLabel> <a type="button"
                                                  class="btn botaoProfessor "
                                                  onclick="mudarEstado('divCPF')">Editar</a>
                     <br/>
                     <div id="divCPF" class="edicao">
 
                         <h:form>
-                            <h:inputText pt:placeholder="CPF"></h:inputText>
-                            <h:commandButton value="Salvar"></h:commandButton>
+                            <h:inputText value="#{perfilDocenteControle.docente.cpf}" pt:placeholder="CPF"></h:inputText>
+                            <h:commandButton action="#{perfilDocenteControle.atualizar}" value="Salvar"></h:commandButton>
                         </h:form>
                     </div>
                 </td>
@@ -103,14 +103,14 @@
 
             <tr>
                 <td>
-                    <p>Data de nascimento:</p> <span></span> <a
+                    <p>Data de nascimento:</p> <h:outputLabel value="#{perfilDocenteControle.docente.dataNascimento}"></h:outputLabel> <a
                         type="button"
                         class="btn botaoProfessor " onclick="mudarEstado('divNascimento')">Editar</a>
                     <br/>
                     <div id="divNascimento" class="edicao">
                         <h:form>
-                            <h:inputText pt:placeholder="Data de nascimento"></h:inputText>
-                            <h:commandButton value="Salvar"></h:commandButton>
+                            <h:inputText value="#{perfilDocenteControle.docente.dataNascimento}" pt:placeholder="Data de nascimento"></h:inputText>
+                            <h:commandButton action="#{perfilDocenteControle.atualizar}" value="Salvar"></h:commandButton>
                         </h:form>
                     </div>
                 </td>
@@ -118,14 +118,14 @@
 
             <tr>
                 <td>
-                    <p>Currículo:</p> <span></span> <a type="button"
+                    <p>Currículo:</p> <h:outputLabel value="#{perfilDocenteControle.docente.curriculo}"></h:outputLabel> <a type="button"
                                                        class="btn botaoProfessor "
                                                        onclick="mudarEstado('divCurriculo')">Editar</a>
                     <br/>
                     <div id="divCurriculo" class="edicao">
                         <h:form>
-                            <h:inputText pt:placeholder="Curriculo"></h:inputText>
-                            <h:commandButton value="Salvar"></h:commandButton>
+                            <h:inputText value="#{perfilDocenteControle.docente.curriculo}" pt:placeholder="Curriculo"></h:inputText>
+                            <h:commandButton action="#{perfilDocenteControle.atualizar}" value="Salvar"></h:commandButton>
                         </h:form>
                     </div>
                 </td>
@@ -133,14 +133,14 @@
 
             <tr>
                 <td>
-                    <p>Login:</p> <span></span> <a type="button"
-                                                                                      class="btn botaoProfessor "
-                                                                                      onclick="mudarEstado('divLogin')">Editar</a>
+                    <p>Login:</p> <h:outputLabel value="#{perfilDocenteControle.docente.identificacao.login}"></h:outputLabel> <a type="button"
+                                                                                                                                  class="btn botaoProfessor "
+                                                                                                                                  onclick="mudarEstado('divLogin')">Editar</a>
                     <br/>
                     <div id="divLogin" class="edicao">
                         <h:form>
-                            <h:inputText pt:placeholder="Login"></h:inputText>
-                            <h:commandButton value="Salvar"></h:commandButton>
+                            <h:inputText value="#{perfilDocenteControle.docente.identificacao.login}" pt:placeholder="Login"></h:inputText>
+                            <h:commandButton action="#{perfilDocenteControle.atualizar}" value="Salvar"></h:commandButton>
                         </h:form>
                     </div>
                 </td>
@@ -148,14 +148,14 @@
 
             <tr>
                 <td>
-                    <p>Senha:</p> <span ></span> <a type="button"
-                                                                                      class="btn botaoProfessor "
-                                                                                      onclick="mudarEstado('divSenha')">Editar</a>
+                    <p>Senha:</p> <h:outputLabel value="#{perfilDocenteControle.docente.identificacao.senha}"></h:outputLabel> <a type="button"
+                                                                                                                                  class="btn botaoProfessor "
+                                                                                                                                  onclick="mudarEstado('divSenha')">Editar</a>
                     <br/>
                     <div id="divSenha" class="edicao">
                         <h:form>
-                            <h:inputText pt:placeholder="Senha"></h:inputText>
-                            <h:commandButton value="Salvar"></h:commandButton>
+                            <h:inputText value="#{perfilDocenteControle.docente.identificacao.senha}" pt:placeholder="Senha"></h:inputText>
+                            <h:commandButton action="#{perfilDocenteControle.atualizar}" value="Salvar"></h:commandButton>
                         </h:form>
                     </div>
                 </td>
@@ -167,28 +167,28 @@
             <h3 style="text-align: center">Endereço</h3>
             <tr>
                 <td>
-                    <p>Cep:</p> <span></span> <a type="button"
+                    <p>Cep:</p> <h:outputLabel value="#{perfilDocenteControle.docente.endereco.cep}"></h:outputLabel> <a type="button"
                                                                                            class="btn botaoProfessor "
                                                                                            onclick="mudarEstado('divCep')">Editar</a>
                     <br/>
                     <div id="divCep" class="edicao">
                         <h:form>
-                            <h:inputText pt:placeholder="CEP"></h:inputText>
-                            <h:commandButton value="Salvar"></h:commandButton>
+                            <h:inputText value="#{perfilDocenteControle.docente.endereco.cep}" pt:placeholder="CEP"></h:inputText>
+                            <h:commandButton action="#{perfilDocenteControle.atualizar}" value="Salvar"></h:commandButton>
                         </h:form>
                     </div>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <p>Rua:</p> <span></span> <a type="button"
+                    <p>Rua:</p> <h:outputLabel value="#{perfilDocenteControle.docente.endereco.rua}"></h:outputLabel> <a type="button"
                                                                                            class="btn botaoProfessor "
                                                                                            onclick="mudarEstado('divRua')">Editar</a>
                     <br/>
                     <div id="divRua" class="edicao">
                         <h:form>
-                            <h:inputText pt:placeholder="Rua"></h:inputText>
-                            <h:commandButton value="Salvar"></h:commandButton>
+                            <h:inputText value="#{perfilDocenteControle.docente.endereco.rua}" pt:placeholder="Rua"></h:inputText>
+                            <h:commandButton action="#{perfilDocenteControle.atualizar}" value="Salvar"></h:commandButton>
                         </h:form>
                     </div>
                 </td>
@@ -196,14 +196,14 @@
 
             <tr>
                 <td>
-                    <p>Número:</p> <span></span> <a type="button"
+                    <p>Número:</p> <h:outputLabel value="#{perfilDocenteControle.docente.endereco.numero}"></h:outputLabel> <a type="button"
                                                                                                  class="btn botaoProfessor "
                                                                                                  onclick="mudarEstado('divNumero')">Editar</a>
                     <br/>
                     <div id="divNumero" class="edicao">
                         <h:form>
-                            <h:inputText pt:placeholder="Número"></h:inputText>
-                            <h:commandButton value="Salvar"></h:commandButton>
+                            <h:inputText value="#{perfilDocenteControle.docente.endereco.numero}" pt:placeholder="Número"></h:inputText>
+                            <h:commandButton action="#{perfilDocenteControle.atualizar}" value="Salvar"></h:commandButton>
                         </h:form>
                     </div>
                 </td>

@@ -32,12 +32,16 @@
     <div class="divDadosCadastro ">
 
         <h:form class="formCadastro form-signin">
+
+            <h:outputLabel rendered="#{cadastroControle.erro}" style="color: red;" value="Todos os campos devem estar preenchidos!"></h:outputLabel>
+
             <h2 class="form-signin-heading text-center">Crie uma nova conta!</h2>
 
             <h:inputText value="#{cadastroControle.nome}" pt:placeholder="Nome" id="inputNome" styleClass="form-control itensForm"/>
             <h:inputText value="#{cadastroControle.sobreNome}" pt:placeholder="Sobrenome"  id="inputSobreNome" styleClass="form-control itensForm"/>
 
-            <h:inputText value="#{cadastroControle.cpf}" id="inputCpf" pt:placeholder="CPF" maxlength="11" class="form-control itensForm" />
+            <h:inputText value="#{cadastroControle.cpf}" id="inputCpf"
+                         pt:placeholder="CPF" maxlength="11" class="form-control itensForm"/>
 
             <h:inputText value="#{cadastroControle.senha}" pt:placeholder="Senha" id="inputPassword" styleClass="form-control itensForm" />
 
